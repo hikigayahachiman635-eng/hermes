@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nekurama-chi ✧ Anime Lucu</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    background: linear-gradient(160deg, #ffd1e8 0%, #c9f4ff 50%, #ffe9c7 100%);
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='26' font-size='26'>🐱</text></svg>") 8 8, auto;
+  }
+
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .stars span {
+    position: absolute;
+    font-size: 24px;
+    animation: twinkle 3s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+    50% { transform: translateY(-18px) rotate(20deg); opacity: 1; }
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: #ff5d9e;
+    text-shadow: 3px 3px 0 #fff, 6px 6px 0 rgba(255, 93, 158, 0.25);
+    animation: bouncy 2s ease-in-out infinite;
+  }
+
+  @keyframes bouncy {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .subtitle {
+    margin: 14px 0 30px;
+    color: #4a4a9a;
+    font-size: 1.1rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 12px 0 rgba(255, 93, 158, 0.2), 0 20px 40px rgba(0,0,0,0.08);
+    border: 3px solid #ffb3d1;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .card::before {
+    content: "✨";
+    position: absolute;
+    top: -18px;
+    left: -12px;
+    font-size: 30px;
+    animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .mascot { font-size: 5rem; display: inline-block; animation: wiggle 2.5s ease-in-out infinite; }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-6deg) scale(1); }
+    50% { transform: rotate(6deg) scale(1.12); }
+  }
+
+  .mascot-copy { margin-top: 12px; color: #333; font-size: 1.05rem; line-height: 1.6; }
+
+  .press-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #ff7ab0, #7ab8ff);
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 6px 0 #d4547f;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  .press-btn:active { transform: translateY(5px); box-shadow: 0 1px 0 #d4547f; }
+
+  .chibi-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+  .chibi {
+    font-size: 3rem;
+    background: #fff;
+    border-radius: 50%;
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffd1e8;
+    animation: dance 1.6s ease-in-out infinite;
+  }
+  .chibi:nth-child(2) { animation-delay: 0.3s; }
+  .chibi:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes dance {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(-8deg); }
+    75% { transform: translateY(-8px) rotate(8deg); }
+  }
+
+  #joke-box {
+    margin-top: 16px;
+    min-height: 52px;
+    font-size: 1.1rem;
+    color: #c0392b;
+    font-weight: bold;
+    background: #fff6d8;
+    border-radius: 12px;
+    padding: 12px;
+    border: 2px dashed #f0c36d;
+  }
+
+  .footer { color: #7a7ab0; font-size: 0.85rem; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="wrapper">
+    <h1>Nekurama-chi!</h1>
+    <p class="subtitle">🩷 Dunia anime lucu, dijamin anti galau 🐾</p>
+
+    <div class="card">
+      <div class="mascot">🐱</div>
+      <p class="mascot-copy">
+        Hai! Aku <b>Kuririn-chan</b>, kucing sakti dari sekolah ninja ramen.<br>
+        Kalau kamu lagi sedih, pencet tombol di bawah ya, nyah! ✨
+      </p>
+      <button class="press-btn" onclick="showJoke()">🍥 Pencet untuk lucu 🍥</button>
+      <div id="joke-box">🌀 belum diklik... penasaran? coba klik!</div>
+    </div>
+
+    <div class="chibi-row">
+      <div class="chibi">🍙</div>
+      <div class="chibi">⚡</div>
+      <div class="chibi">🌸</div>
+    </div>
+
+    <p class="footer">Dibuat dengan 💖 oleh kucing — no anime was harmed 🐾</p>
+  </div>
+
+  <script>
+    const stars = [
+      "⭐", "✨", "🌙", "💫", "🍥", "🎀", "🩷", "🐟", "🌈", "🍡",
+      "⭐", "✨", "🌙", "💫", "🍥", "🎀", "🩷", "🐟", "🌈", "🍡"
+    ];
+    const el = document.getElementById("stars");
+    stars.forEach((s, i) => {
+      const span = document.createElement("span");
+      span.textContent = s;
+      span.style.left = Math.random() * 95 + "%";
+      span.style.top = Math.random() * 95 + "%";
+      span.style.animationDelay = (Math.random() * 3) + "s";
+      el.appendChild(span);
+    });
+
+    const jokes = [
+      "Kenapa Naruto nggak pernah nangis? Karena dia sudah saus-kece! 🍥",
+      "Aku diet, tapi pas liat anime siang-malem. Ternyata yang kurus tuh... ramen-nya. 🍜",
+      "Kenapa kucingku cuma punya 3 kaki? Karena dia kucing 'san-goku'. 🐱",
+      "Temen bilang aku imut. Katanya imut versi 'imut-in aja dulu, nanti juga dewasa'. 🐣",
+      "Ah... kalau aku jadi isekai, aku pengen reinkarnasi jadi kamar mandi. Biar selalu dipakai banyak orang. 🚿",
+      "Kenapa senpai nggak ngelirik aku? Mungkin karena aku masih 'trailer', belum 'episode' 😭",
+      "Guru bilang 'tekun belajar'. Aku tekun... nonton 12 episode tanpa jeda. Semangat! 📺",
+      "Aku percaya cinta sejati itu ada. Tapi pilihan jodohku kayak filler arc: nggak ngaruh sama cerita. 💔",
+      "Pengen jadi makhluk ajaib biar muncul cuma pas dibutuhin aja, kayak plot armor. 🛡️",
+      "Kalau hidup ada loading bar, aku kayaknya stuck di 99% terus... gara-gara ingat mantan. ⏳"
+    ];
+    let i = 0;
+    function showJoke() {
+      const box = document.getElementById("joke-box");
+      box.textContent = jokes[i % jokes.length] + " (⑅˘꒳˘)";
+      i++;
+      box.style.transform = "scale(1.05)";
+      setTimeout(() => box.style.transform = "scale(1)", 150);
+    }
+  </script>
+</body>
+</html>
